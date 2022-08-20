@@ -1,30 +1,4 @@
 
-
-
-function getInputFieldById(isIncrease) {
-
-    const inputFieldPreviousElement = document.getElementById('case-input-field');
-
-    const inputFieldPreviousAmountString = inputFieldPreviousElement.value;
-
-    const inputFieldPreviousAmount = parseInt(inputFieldPreviousAmountString);
-
-
-    let newInputNumber;
-
-    if (isIncrease === true) {
-        newInputNumber = inputFieldPreviousAmount + 1;
-    }
-
-    else {
-        newInputNumber = inputFieldPreviousAmount - 1;
-    }
-
-    inputFieldPreviousElement.value = newInputNumber;
-
-    return newInputNumber;
-}
-
 function getElementPrice(newCaseAmount) {
 
     const newCaseTotalPrice = newCaseAmount * 59;
@@ -38,9 +12,10 @@ function getElementPrice(newCaseAmount) {
 
 document.getElementById('btn-case-plus').addEventListener('click', function () {
 
-    const newCaseAmount = getInputFieldById(true);
+    const newCaseAmount = getInputFieldById('case-input-field', true);
 
     getElementPrice(newCaseAmount);
+    getTheSubTotalelementById();
 
 
 })
@@ -49,7 +24,8 @@ document.getElementById('btn-case-plus').addEventListener('click', function () {
 
 document.getElementById('btn-case-minus').addEventListener('click', function () {
 
-    const newCaseAmount = getInputFieldById(false);
+    const newCaseAmount = getInputFieldById('case-input-field', false);
 
     getElementPrice(newCaseAmount);
+    getTheSubTotalelementById();
 })
